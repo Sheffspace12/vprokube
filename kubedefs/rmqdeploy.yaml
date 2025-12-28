@@ -21,12 +21,10 @@ spec:
         - name: vprormq-port
           containerPort: 5672
         env:
-         - name: RABBITMQ_DEFAULT_PASS
-           valueFrom:
-           secretKeyRef:
+        - name: RABBITMQ_DEFAULT_USER
+          value: "guest"
+        - name: RABBITMQ_DEFAULT_PASS
+          valueFrom:
+            secretKeyRef:
               name: app-secret
               key: rmq-pass
-         - name: RABBITMQ_DEFAULT_USER
-           value: "guest"
-
-   
